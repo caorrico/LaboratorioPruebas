@@ -1,0 +1,51 @@
+# Workflow de Integracion Continua (CI) para GitHub Actions
+# Laboratorio 6 - CI/CD usando GitHub Actions
+# Autor: Estudiante ESPE
+
+name: CI Pipeline
+
+# Triggers: se ejecuta en push y pull request a la rama main
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    # Ejecutar en la ultima version de Ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+      # Paso 1: Checkout del codigo
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      # Paso 2: Configurar Node.js
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # Paso 3: Instalar dependencias
+      - name: Instalar dependencias
+        run: npm ci
+
+      # Paso 4: Ejecutar ESLint para analisis de codigo
+      - name: Ejecutar ESLint
+        run: npm run lint
+
+      # Paso 5: Ejecutar pruebas unitarias con Jest
+      - name: Ejecutar pruebas unitarias
+        run: npm test
+
+      # Paso 6: Simulacion de despliegue
+      - name: Simular despliegue
+        run: |
+          echo "==========================================="
+          echo "  SIMULACION DE DESPLIEGUE EXITOSO"
+          echo "==========================================="
+          echo "La aplicacion esta lista para ser desplegada"
+          echo "Todas las pruebas han pasado correctamente"
+          echo "El codigo cumple con los estandares de ESLint"

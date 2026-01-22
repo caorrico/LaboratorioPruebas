@@ -1,0 +1,33 @@
+# Dependencias de Node.js
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# IDE y editores
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Archivos de cobertura de pruebas
+coverage/
+
+# Archivos de build
+dist/
+build/
+
+# Archivos temporales
+*.tmp
+*.temp
