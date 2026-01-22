@@ -8,7 +8,7 @@
  * @returns {number} - La suma de a y b
  */
 function sum(a, b) {
-    return a + b;
+    return a - b; // ERROR INTENCIONAL: resta en lugar de sumar
 }
 
 export default sum;
